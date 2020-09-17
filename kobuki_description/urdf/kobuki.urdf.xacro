@@ -65,6 +65,7 @@
       <child link="wheel_left_link"/>
       <origin xyz="0.00 ${0.23/2} 0.0250" rpy="${-M_PI/2} 0 0"/>
       <axis xyz="0 0 1"/>
+      <!--<dynamics damping="0.0" friction="0.1"/>-->
     </joint>
     <link name="wheel_left_link">
       <visual>
@@ -82,9 +83,9 @@
       <inertial>
         <mass value="0.01" />
         <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                 iyy="0.001" iyz="0.0"
-                 izz="0.001" />
+        <inertia ixx="0.00001" ixy="0.0" ixz="0.0"
+                 iyy="0.00001" iyz="0.0"
+                 izz="0.00001" />
       </inertial>
     </link>
 
@@ -93,6 +94,7 @@
       <child link="wheel_right_link"/>
       <origin xyz="0.00 -${0.23/2} 0.0250" rpy="${-M_PI/2} 0 0"/>
       <axis xyz="0 0 1"/>
+      <!--<dynamics damping="0.0" friction="0.1"/>-->
     </joint>
     <link name="wheel_right_link">
       <visual>
@@ -110,51 +112,53 @@
       <inertial>
         <mass value="0.01" />
         <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                 iyy="0.001" iyz="0.0"
-                 izz="0.001" />
+        <inertia ixx="0.00001" ixy="0.0" ixz="0.0"
+                 iyy="0.00001" iyz="0.0"
+                 izz="0.00001" />
       </inertial>
     </link>
 
-    <joint name="caster_front_joint" type="fixed">
+    <joint name="caster_front_joint" type="continuous">
       <parent link="base_link"/>
       <child link="caster_front_link"/>
       <origin xyz="0.115 0.0 0.007" rpy="${-M_PI/2} 0 0"/>
+      <axis xyz="0 0 1"/>
     </joint>
     <link name="caster_front_link">
       <collision>
         <geometry>
-          <cylinder length="0.0176" radius="0.017"/>
+          <sphere radius="0.017"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
       </collision>
       <inertial>
         <mass value="0.01" />
         <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                 iyy="0.001" iyz="0.0"
-                 izz="0.001" />
+        <inertia ixx="0.000001" ixy="0.0" ixz="0.0"
+                 iyy="0.000001" iyz="0.0"
+                 izz="0.000001" />
       </inertial>
     </link>
 
-    <joint name="caster_back_joint" type="fixed">
+    <joint name="caster_back_joint" type="continuous">
       <parent link="base_link"/>
       <child link="caster_back_link"/>
       <origin xyz="-0.135 0.0 0.009" rpy="${-M_PI/2} 0 0"/>
+      <axis xyz="0 0 1"/>
     </joint>
     <link name="caster_back_link">
       <collision>
         <geometry>
-          <cylinder length="0.0176" radius="0.017"/>
+          <sphere radius="0.017"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
       </collision>
       <inertial>
         <mass value="0.01" />
         <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                 iyy="0.001" iyz="0.0"
-                 izz="0.001" />
+        <inertia ixx="0.000001" ixy="0.0" ixz="0.0"
+                 iyy="0.000001" iyz="0.0"
+                 izz="0.000001" />
       </inertial>
     </link>
 
